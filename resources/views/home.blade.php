@@ -1058,11 +1058,11 @@
                     </div>
                     <div class="elementor-element elementor-element-e1d3532 elementor-absolute elementor-countdown--label-block elementor-widget elementor-widget-countdown" data-id="e1d3532" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="countdown.default">
                       <div class="elementor-widget-container">
-                        <div class="elementor-countdown-wrapper" data-date="1638577800">
-                          <div class="elementor-countdown-item"><span class="elementor-countdown-digits elementor-countdown-days">00</span> <span class="elementor-countdown-label">Hari</span></div>
-                          <div class="elementor-countdown-item"><span class="elementor-countdown-digits elementor-countdown-hours">00</span> <span class="elementor-countdown-label">Jam</span></div>
-                          <div class="elementor-countdown-item"><span class="elementor-countdown-digits elementor-countdown-minutes">00</span> <span class="elementor-countdown-label">Menit</span></div>
-                          <div class="elementor-countdown-item"><span class="elementor-countdown-digits elementor-countdown-seconds">00</span> <span class="elementor-countdown-label">Detik</span></div>
+                        <div class="elementor-countdown-wrapper">
+                          <div class="elementor-countdown-item"><span id="cd-days" class="elementor-countdown-digits elementor-countdown-days">00</span> <span class="elementor-countdown-label">Hari</span></div>
+                          <div class="elementor-countdown-item"><span id="cd-hours" class="elementor-countdown-digits elementor-countdown-hours">00</span> <span class="elementor-countdown-label">Jam</span></div>
+                          <div class="elementor-countdown-item"><span id="cd-minutes" class="elementor-countdown-digits elementor-countdown-minutes">00</span> <span class="elementor-countdown-label">Menit</span></div>
+                          <div class="elementor-countdown-item"><span id="cd-seconds" class="elementor-countdown-digits elementor-countdown-seconds">00</span> <span class="elementor-countdown-label">Detik</span></div>
                         </div>
                       </div>
                     </div>
@@ -1097,20 +1097,18 @@
                     </div>
                     <div class="elementor-element elementor-element-15e1ef6f elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="15e1ef6f" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
                       <div class="elementor-widget-container">
-                        <form class="elementor-form" method="post" id="myForm" name="New Form">
-                          <input type="hidden" name="post_id" value="41312">
-                          <input type="hidden" name="form_id" value="15e1ef6f">
-                          <input type="hidden" name="queried_id" value="41312">
+                        <form class="elementor-form" method="post" action="{{ route('pesan.post') }}" id="myForm" name="New Form">
+                            @csrf
                           <div class="elementor-form-fields-wrapper elementor-labels-above">
                             <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required elementor-mark-required">
-                              <label for="form-field-name" class="elementor-field-label">Nama</label><input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Name" required="required" aria-required="true">
+                              <label for="form-field-name" class="elementor-field-label">Nama</label><input type="text" name="name" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Nama" required="required" aria-required="true">
                             </div>
                             <div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100 elementor-field-required elementor-mark-required">
-                              <label for="form-field-message" class="elementor-field-label">Pesan</label><textarea class="elementor-field-textual elementor-field  elementor-size-sm" name="form_fields[message]" id="form-field-message" rows="4" placeholder="Message" required="required" aria-required="true"></textarea>
+                              <label for="form-field-message" class="elementor-field-label">Pesan</label><textarea class="elementor-field-textual elementor-field  elementor-size-sm" name="pesan" id="form-field-message" rows="4" placeholder="Pesan" required="required" aria-required="true"></textarea>
                             </div>
                             <div class="elementor-field-type-radio elementor-field-group elementor-column elementor-field-group-field_0901dbb elementor-col-100 elementor-field-required elementor-mark-required">
                               <label for="form-field-field_0901dbb" class="elementor-field-label">Apakah kamu datang?</label>
-                              <div class="elementor-field-subgroup  elementor-subgroup-inline"><span class="elementor-field-option"><input type="radio" value="Yes" id="form-field-field_0901dbb-0" name="form_fields[field_0901dbb]" required="required" aria-required="true"> <label for="form-field-field_0901dbb-0">Ya</label></span><span class="elementor-field-option"><input type="radio" value="No" id="form-field-field_0901dbb-1" name="form_fields[field_0901dbb]" required="required" aria-required="true"> <label for="form-field-field_0901dbb-1">Tidak</label></span></div>
+                              <div class="elementor-field-subgroup  elementor-subgroup-inline"><span class="elementor-field-option"><input type="radio" value="1" id="form-field-field_0901dbb-0" name="attend" required="required" aria-required="true"> <label for="form-field-field_0901dbb-0">Ya</label></span><span class="elementor-field-option"><input type="radio" value="0" id="form-field-field_0901dbb-1" name="attend" required="required" aria-required="true"> <label for="form-field-field_0901dbb-1">Tidak</label></span></div>
                             </div>
                             <div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
                               <button type="submit" class="elementor-button elementor-size-sm" id="submith">
@@ -1146,34 +1144,36 @@
                     </div>
                     <div class="elementor-element elementor-element-40a41e36 ucapan-doa elementor-widget elementor-widget-text-editor" data-id="40a41e36" data-element_type="widget" data-widget_type="text-editor.default">
                       <div class="elementor-widget-container">
-                        <div class="elementor-text-editor elementor-clearfix">
-                          <p>...</p>
+                        <div class="elementor-text-editor elementor-clearfix" id="listPesan">
+                            @foreach ($pesan as $v)
+                                <p style="font-size:15px;">{{ $v->name}} : <i>"{{ $v->message }}"</i></p>
+                            @endforeach
                         </div>
                       </div>
                     </div>
                     <div class="elementor-element elementor-element-744fddf3 elementor-widget elementor-widget-html" data-id="744fddf3" data-element_type="widget" data-widget_type="html.default">
                       <div class="elementor-widget-container">
                         <script>
-                          fetch('https://undangan-api.vercel.app/api/getdata/?kepada=Hafni-Septian')
-                            .then(response => response.json())
-                            .then(data => {
-                              let ucapan = []
-                              data.map(v => {
-                                ucapan.push(`
-                                <p >
-                                <b>
-                                ${decodeURI(v.dari)}
-                                </b><br/>
-                                ${v.pesan}
-                                </p>
-                                `)
-                              })
-                              let doa = document.getElementsByClassName("ucapan-doa")[0]
-                              console.log(doa)
-                              doa.innerHTML = data.map(e => `<span ><b> ${decodeURI(e.dari)}</b>
-                              <br/>${decodeURI(e.pesan)}<br>
-                              </span>`).join("");
-                            });
+                        //   fetch('https://undangan-api.vercel.app/api/getdata/?kepada=Hafni-Septian')
+                        //     .then(response => response.json())
+                        //     .then(data => {
+                        //       let ucapan = []
+                        //       data.map(v => {
+                        //         ucapan.push(`
+                        //         <p >
+                        //         <b>
+                        //         ${decodeURI(v.dari)}
+                        //         </b><br/>
+                        //         ${v.pesan}
+                        //         </p>
+                        //         `)
+                        //       })
+                        //       let doa = document.getElementsByClassName("ucapan-doa")[0]
+                        //       console.log(doa)
+                        //       doa.innerHTML = data.map(e => `<span ><b> ${decodeURI(e.dari)}</b>
+                        //       <br/>${decodeURI(e.pesan)}<br>
+                        //       </span>`).join("");
+                        //     });
                         </script>
                       </div>
                     </div>
@@ -1792,12 +1792,59 @@
   <script src="/assets/share-link.js" id="share-link-js"></script>
   <script src="/assets/frontend_002.js" id="elementor-frontend-js"></script><span id="elementor-device-mode" class="elementor-screen-only"></span>
   <script>
-    /(trident|msie)/i.test(navigator.userAgent) && document.getElementById && window.addEventListener && window
-      .addEventListener("hashchange", function() {
-        var t, e = location.hash.substring(1);
-        /^[A-z0-9_-]+$/.test(e) && (t = document.getElementById(e)) && (/^(?:a|select|input|button|textarea)$/i.test(t
-          .tagName) || (t.tabIndex = -1), t.focus())
-      }, !1);
+        var date1 = new Date();
+        var date2 = new Date('2021-12-04');
+        var upgradeTime = Math.floor((date2.getTime() - date1.getTime()) / 1000);
+        var seconds = upgradeTime;
+        function timer() {
+        var days        = Math.floor(seconds/24/60/60);
+        var hoursLeft   = Math.floor((seconds) - (days*86400));
+        var hours       = Math.floor(hoursLeft/3600);
+        var minutesLeft = Math.floor((hoursLeft) - (hours*3600));
+        var minutes     = Math.floor(minutesLeft/60);
+        var remainingSeconds = seconds % 60;
+        function pad(n) {
+            return (n < 10 ? "0" + n : n);
+        }
+        document.getElementById('cd-days').innerHTML = pad(days);
+        document.getElementById('cd-hours').innerHTML = pad(hours);
+        document.getElementById('cd-minutes').innerHTML = pad(minutes);
+        document.getElementById('cd-seconds').innerHTML = pad(remainingSeconds);
+        if (seconds == 0) {
+            clearInterval(countdownTimer);
+            // document.getElementById('countdown').innerHTML = "Completed";
+        } else {
+            seconds--;
+        }
+        }
+        var countdownTimer = setInterval('timer()', 1000);
+        $("#myForm").submit(function(e) {
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+
+            var form = $(this);
+            var url = form.attr('action');
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(), // serializes the form's elements.
+                success: function(data)
+                {
+                    alert('Terima kasih ucapannnya!');
+                    $('#submith').prop('disabled', true);
+                    $('#listPesan').prepend('<p style="font-size:15px">'+data.name+' : <i>"'+data.message+'"</i></p>');
+                }
+                });
+
+
+        });
+        /(trident|msie)/i.test(navigator.userAgent) && document.getElementById && window.addEventListener && window
+        .addEventListener("hashchange", function() {
+            var t, e = location.hash.substring(1);
+            /^[A-z0-9_-]+$/.test(e) && (t = document.getElementById(e)) && (/^(?:a|select|input|button|textarea)$/i.test(t
+            .tagName) || (t.tabIndex = -1), t.focus())
+        }, !1);
   </script>
 
 </body>
