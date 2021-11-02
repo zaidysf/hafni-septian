@@ -447,7 +447,7 @@
                                 <div class="elementor-element elementor-element-42db43c6 elementor-widget elementor-widget-text-editor" data-id="42db43c6" data-element_type="widget" data-widget_type="text-editor.default">
                                   <div class="elementor-widget-container">
                                     <div class="elementor-text-editor elementor-clearfix">
-                                      <p>Dear{{ isset($data['to']) ?? " ".str_replace("+", " ", $data['to']) : "" }}</p>
+                                      <p>Dear{{ isset($data['to']) ? " ".str_replace("+", " ", $data['to']) : "" }}</p>
                                     </div>
                                   </div>
                                 </div>
