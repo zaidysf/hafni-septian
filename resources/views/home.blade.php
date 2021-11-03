@@ -1752,9 +1752,9 @@
                                 <i class="fab fa-instagram"></i> </a>
                             </div>
                             <div class="elementor-grid-item">
-                              <a class="elementor-icon elementor-social-icon elementor-social-icon-whatsapp elementor-repeater-item-59c8784" href="http://pesan.link/#" target="_blank">
-                                <span class="elementor-screen-only">Whatsapp</span>
-                                <i class="fab fa-whatsapp"></i> </a>
+                              <a class="elementor-icon elementor-social-icon elementor-social-icon-whatsapp elementor-repeater-item-59c8784" href="https://nikah.club/" target="_blank">
+                                <span class="elementor-screen-only">Website</span>
+                                <i class="fab fa-chrome"></i> </a>
                             </div>
                           </div>
                         </div>
@@ -1797,34 +1797,31 @@
         var upgradeTime = Math.floor((date2.getTime() - date1.getTime()) / 1000);
         var seconds = upgradeTime;
         function timer() {
-        var days        = Math.floor(seconds/24/60/60);
-        var hoursLeft   = Math.floor((seconds) - (days*86400));
-        var hours       = Math.floor(hoursLeft/3600);
-        var minutesLeft = Math.floor((hoursLeft) - (hours*3600));
-        var minutes     = Math.floor(minutesLeft/60);
-        var remainingSeconds = seconds % 60;
-        function pad(n) {
-            return (n < 10 ? "0" + n : n);
-        }
-        document.getElementById('cd-days').innerHTML = pad(days);
-        document.getElementById('cd-hours').innerHTML = pad(hours);
-        document.getElementById('cd-minutes').innerHTML = pad(minutes);
-        document.getElementById('cd-seconds').innerHTML = pad(remainingSeconds);
-        if (seconds == 0) {
-            clearInterval(countdownTimer);
-            // document.getElementById('countdown').innerHTML = "Completed";
-        } else {
-            seconds--;
-        }
+            var days        = Math.floor(seconds/24/60/60);
+            var hoursLeft   = Math.floor((seconds) - (days*86400));
+            var hours       = Math.floor(hoursLeft/3600);
+            var minutesLeft = Math.floor((hoursLeft) - (hours*3600));
+            var minutes     = Math.floor(minutesLeft/60);
+            var remainingSeconds = seconds % 60;
+            function pad(n) {
+                return (n < 10 ? "0" + n : n);
+            }
+            document.getElementById('cd-days').innerHTML = pad(days);
+            document.getElementById('cd-hours').innerHTML = pad(hours);
+            document.getElementById('cd-minutes').innerHTML = pad(minutes);
+            document.getElementById('cd-seconds').innerHTML = pad(remainingSeconds);
+            if (seconds == 0) {
+                clearInterval(countdownTimer);
+                // document.getElementById('countdown').innerHTML = "Completed";
+            } else {
+                seconds--;
+            }
         }
         var countdownTimer = setInterval('timer()', 1000);
         $("#myForm").submit(function(e) {
-
             e.preventDefault(); // avoid to execute the actual submit of the form.
-
             var form = $(this);
             var url = form.attr('action');
-
             $.ajax({
                 type: "POST",
                 url: url,
@@ -1836,8 +1833,6 @@
                     $('#listPesan').prepend('<p style="font-size:15px">'+data.name+' : <i>"'+data.message+'"</i></p>');
                 }
                 });
-
-
         });
         /(trident|msie)/i.test(navigator.userAgent) && document.getElementById && window.addEventListener && window
         .addEventListener("hashchange", function() {
