@@ -1001,6 +1001,11 @@
                           <p>11.00 - 13.00 WIB</p>
                         </div>
                       </div>
+                      <div class="elementor-widget-container">
+                        <div class="elementor-text-editor elementor-clearfix">
+                          <p><b>Diawali Dengan Tradisi Pedang Pora</b></p>
+                        </div>
+                      </div>
                     </div>
                     <div class="elementor-element elementor-element-45989ecd elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="45989ecd" data-element_type="widget" data-widget_type="divider.default">
                       <div class="elementor-widget-container">
