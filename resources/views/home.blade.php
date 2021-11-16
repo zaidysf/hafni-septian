@@ -1146,7 +1146,7 @@
                       <div class="elementor-widget-container">
                         <div class="elementor-text-editor elementor-clearfix" id="listPesan">
                             @foreach ($pesan as $v)
-                                <p style="font-size:15px; border-bottom: 2px groove aliceblue; padding: 5px">{{ $v->name}} : <i>"{{ $v->message }}"</i></p>
+                                <p style="font-size:15px; border-bottom: 2px groove aliceblue; padding: 5px"><b>{{ $v->name}}</b> <i>"{{ $v->message }}"</i></p>
                             @endforeach
                         </div>
                       </div>
